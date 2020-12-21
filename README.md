@@ -1,6 +1,4 @@
-# Trabalho 1 - Teoria da Informação
-## Ana Carolina Silva
-### up202004100
+# Simplified LPZ Compressor
 
 ## Dependências
 De modo a correr qualquer um dos scripts é necessário instar a biblioteca *bitstring*.
