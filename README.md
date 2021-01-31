@@ -1,30 +1,30 @@
 # Simplified LPZ Compressor
 
-## Dependências
-De modo a correr qualquer um dos scripts é necessário instar a biblioteca *bitstring*.
+## Dependencies
+In order to run the python scripts you need to instal the *bitstring* library.
 
-## Como comprimir um ficheiro?
-De modo a comprimir um ficheiro deve executar o seguinte comando onde indica o nome do ficheiro a comprimir e o nome do ficheiro de destino.
+## How to compress a file?
+In order to compress a file you must execute the following command, specifying the file you want to compress and the destiny file.
 ```sh
-python3 compress.py ficheiro.txt ficheiro.lz
+python3 compress.py file.txt file.lz
 ```
-ou
+or
 ```sh
 pypy3 compress.py ficheiro.txt ficheiro.lz
 ```
 
-## Como descomprimir um ficheiro?
-De modo a descomprimir um ficheiro deve executar o seguinte comando onde indica o nome do ficheiro a descomprimir e o nome do ficheiro de destino.
+## How to decompress a file?
+In order to decompress a file you must execute the following command, specifying the name of the compressed file a the name of the destiny file.
 ```sh
 python3 decompress.py ficheiro.lz ficheiro.txt
 ```
-ou
+or
 ```sh
 pypy3 decompress.py ficheiro.lz ficheiro.txt
 ```
 
-## Detalhes de implementação
-- O *padding* é feito recorrendo à adição de uma string binária do tipo *(0)\*1* de modo a tornar o ficheiro de compressão byte aligned.
-- O ficheiro é lido em blocos de 4096 bytes, uma vez que este é o tamanho de blocos *standard* utilizado pela maior parte dos sistemas operativos.
-- A codificação dos bits sobrantes foi feita através da utilização da posição desta sequência no dicionário.
-    Ou seja, considerando *w* como a sequência de bits sobrantes, e sendo D o dicionário utilizado na codificação, codifica-se w concatenando ao *output* a posição da ocorrência de w no dicionário, D[w].
+## Implementation Details
+- The padding is done by adding a binary string *(0)\*1* in order to byte align the file.
+- The file is read in blocks of 4096 bytes, since this is the standard block size, used in most OS.
+- The remaing bits are coded using their position on the dicitionary.
+    This is, being *w* the sequence of remaing bits and D the dicitionary used to encode, we encode w by concatenating to the output the position of the ocurrence of w in the dictionary, D[w].
